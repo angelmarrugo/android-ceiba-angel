@@ -5,6 +5,7 @@ Aplicativo básico construido para Android que incluye las mejores prácticas de
 
 ## Arquitectura :rocket:
 El modelo de arquitectura que se siguió para la construcción de esta app es el recomendado por Google en su [Guía de arquitectura de apps](https://developer.android.com/jetpack/guide)
+
 <img  src='https://user-images.githubusercontent.com/29846058/129257397-d606977f-afdd-4c7a-8c39-8669a107ab42.png' width='60%'> 
 
 Esta arquitectura sigue el principio de separación de problemas y delegacion de tareas. Esto permite una aplicacion escalable y facil de mantener, ademas que el testeo de esta es mucho mas sencillo.
