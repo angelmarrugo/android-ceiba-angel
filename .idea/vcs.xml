@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/Projects_android/JavaProject" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_android/Mix-3.0-main" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_android/Soccer10" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_android/TesterApp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_android/android-firestore-platzi-crypto-trade" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_android/examen-ingreso-android-ceiba" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_android/platzi-wallet" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_vue/Insecon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_vue/nowait" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Projects_xd" vcs="Git" />
+  </component>
+</project>
