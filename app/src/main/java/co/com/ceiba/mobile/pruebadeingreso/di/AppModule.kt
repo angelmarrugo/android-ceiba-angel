@@ -52,7 +52,7 @@ object AppModule {
         return Room.databaseBuilder(
             app,
             UserRoomDatabase::class.java,
-            "json_database")
+            "json_database_ang")
             .fallbackToDestructiveMigration()
             .build()
     }
