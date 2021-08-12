@@ -3,12 +3,13 @@ package co.com.ceiba.mobile.pruebadeingreso.viewmodel
 import androidx.lifecycle.*
 import co.com.ceiba.mobile.pruebadeingreso.model.User
 import co.com.ceiba.mobile.pruebadeingreso.repository.UserRepository
+import co.com.ceiba.mobile.pruebadeingreso.repository.UserRepositoryImp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModel @Inject constructor(private val userRepository: UserRepository): ViewModel() {
+class UserViewModel @Inject constructor(private val userRepository: UserRepositoryImp): ViewModel() {
 
     val users: LiveData<List<User>> = userRepository.getUsers()
 

@@ -12,28 +12,35 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class UserRepository @Inject constructor(
+interface UserRepository {
+    fun callUsers()
+    fun getUsersFromDb(): LiveData<List<User>>
+    fun getUsers(): MutableLiveData<List<User>>
+    suspend fun insertUsers(users: List<User>)
+}
+
+class UserRepositoryImp @Inject constructor(
     private val api: ApiService,
     private val userDao: UserDao
-    ) {
+    ): UserRepository {
 
     private var users = MutableLiveData<List<User>>()
 
-    fun getUsers(): MutableLiveData<List<User>> {
+    override fun getUsers(): MutableLiveData<List<User>> {
         return users
     }
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun insertUsers(users: List<User>) {
+    override suspend fun insertUsers(users: List<User>) {
         userDao.insertUsers(users)
     }
 
-    fun getUsersFromDb(): LiveData<List<User>> {
+    override fun getUsersFromDb(): LiveData<List<User>> {
         return userDao.loadUsers()
     }
 
-     fun callUsers() {
+     override fun callUsers() {
         val call = api.getUsers()
         call.enqueue(object : Callback<List<User>> {
 
