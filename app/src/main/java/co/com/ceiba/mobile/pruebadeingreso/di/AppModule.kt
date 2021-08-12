@@ -11,8 +11,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -24,24 +22,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
-        val authInterceptor = Interceptor { chain ->
-            val url = chain.request().url.newBuilder()
-                .build()
-
-            val newRequest = chain.request()
-                .newBuilder()
-                .url(url)
-                .build()
-
-            chain.proceed(newRequest)
-        }
-
-        val client = OkHttpClient.Builder()
-            .addInterceptor(authInterceptor).build()
-
         return Retrofit.Builder()
             .baseUrl("https://jsonplaceholder.typicode.com/")
-            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
