@@ -3,23 +3,18 @@ package co.com.ceiba.mobile.pruebadeingreso.ui.activities
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
-import androidx.core.app.NotificationCompat.getExtras
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import co.com.ceiba.mobile.pruebadeingreso.App
 import co.com.ceiba.mobile.pruebadeingreso.R
 import co.com.ceiba.mobile.pruebadeingreso.ui.adapters.PostAdapter
 import co.com.ceiba.mobile.pruebadeingreso.viewmodel.PostViewModel
-import co.com.ceiba.mobile.pruebadeingreso.viewmodel.PostViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_post.*
 
+@AndroidEntryPoint
 class PostActivity : AppCompatActivity() {
 
-    private val postViewModel: PostViewModel by viewModels {
-        PostViewModelFactory((application as App).postRepository)
-    }
+    private val postViewModel: PostViewModel by viewModels ()
 
     private var userId: Int? = null
     private lateinit var dialogProgress: ProgressDialog

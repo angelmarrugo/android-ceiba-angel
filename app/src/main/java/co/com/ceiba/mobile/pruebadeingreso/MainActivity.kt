@@ -13,15 +13,14 @@ import co.com.ceiba.mobile.pruebadeingreso.ui.activities.PostActivity
 import co.com.ceiba.mobile.pruebadeingreso.ui.adapters.UserAdapter
 import co.com.ceiba.mobile.pruebadeingreso.ui.adapters.UserListener
 import co.com.ceiba.mobile.pruebadeingreso.viewmodel.UserViewModel
-import co.com.ceiba.mobile.pruebadeingreso.viewmodel.UserViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_post.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), UserListener {
 
-    private val userViewModel: UserViewModel by viewModels{
-        UserViewModelFactory((application as App).userRepository)
-    }
+    private val userViewModel: UserViewModel by viewModels()
 
     private lateinit var dialogProgress: ProgressDialog
     private val userAdapter: UserAdapter = UserAdapter(this)

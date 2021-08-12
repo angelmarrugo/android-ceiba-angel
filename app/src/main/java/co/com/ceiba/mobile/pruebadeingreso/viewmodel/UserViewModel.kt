@@ -3,9 +3,12 @@ package co.com.ceiba.mobile.pruebadeingreso.viewmodel
 import androidx.lifecycle.*
 import co.com.ceiba.mobile.pruebadeingreso.model.User
 import co.com.ceiba.mobile.pruebadeingreso.repository.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UserViewModel(private val userRepository: UserRepository): ViewModel() {
+@HiltViewModel
+class UserViewModel @Inject constructor(private val userRepository: UserRepository): ViewModel() {
 
     val users: LiveData<List<User>> = userRepository.getUsers()
 
@@ -19,14 +22,4 @@ class UserViewModel(private val userRepository: UserRepository): ViewModel() {
         userRepository.insertUsers(users)
     }
 
-}
-
-class UserViewModelFactory(private val userRepository: UserRepository): ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(UserViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return UserViewModel(userRepository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
-    }
 }

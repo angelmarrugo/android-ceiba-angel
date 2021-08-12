@@ -6,13 +6,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import co.com.ceiba.mobile.pruebadeingreso.db.PostDao
 import co.com.ceiba.mobile.pruebadeingreso.model.Post
-import co.com.ceiba.mobile.pruebadeingreso.model.User
-import co.com.ceiba.mobile.pruebadeingreso.rest.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class PostRepository(private val postDao: PostDao) {
+class PostRepository @Inject constructor(
+    private val api: ApiService,
+    private val postDao: PostDao
+    ) {
 
     private var posts = MutableLiveData<List<Post>>()
 
@@ -35,9 +37,7 @@ class PostRepository(private val postDao: PostDao) {
     }
 
     fun callPosts(userId: Int) {
-        val apiAdapter = ApiClient()
-        val apiService = apiAdapter.getClientService()
-        val call = apiService.getPosts(userId)
+        val call = api.getPosts(userId)
         call.enqueue(object : Callback<List<Post>> {
 
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {

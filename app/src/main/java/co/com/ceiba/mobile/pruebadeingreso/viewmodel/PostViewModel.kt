@@ -3,13 +3,15 @@ package co.com.ceiba.mobile.pruebadeingreso.viewmodel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import co.com.ceiba.mobile.pruebadeingreso.model.Post
 import co.com.ceiba.mobile.pruebadeingreso.repository.PostRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PostViewModel(private val repository: PostRepository): ViewModel() {
+@HiltViewModel
+class PostViewModel @Inject constructor(private val repository: PostRepository): ViewModel() {
 
     fun getPosts(): LiveData<List<Post>> {
         return repository.getPosts()
@@ -31,15 +33,5 @@ class PostViewModel(private val repository: PostRepository): ViewModel() {
         Log.d(PostViewModel::class.simpleName,"onCleared")
         repository.reset()
         super.onCleared()
-    }
-}
-
-class PostViewModelFactory(private val repository: PostRepository): ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(PostViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return PostViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
