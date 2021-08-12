@@ -67,7 +67,7 @@ class UserAdapter(private val userListener: UserListener)
                 filteredList.addAll(usersListFull)
             }else {
                 usersListFull.forEach { user ->
-                    if (user.name?.lowercase()?.startsWith(constraint.toString().lowercase())!!) {
+                    if (user.name?.lowercase()?.contains(constraint.toString().lowercase())!!) {
                         filteredList.add(user)
                     }
                 }

@@ -2,7 +2,6 @@ package co.com.ceiba.mobile.pruebadeingreso.viewmodel
 
 import androidx.lifecycle.*
 import co.com.ceiba.mobile.pruebadeingreso.model.User
-import co.com.ceiba.mobile.pruebadeingreso.model.UserObservable
 import co.com.ceiba.mobile.pruebadeingreso.repository.UserRepository
 import kotlinx.coroutines.launch
 

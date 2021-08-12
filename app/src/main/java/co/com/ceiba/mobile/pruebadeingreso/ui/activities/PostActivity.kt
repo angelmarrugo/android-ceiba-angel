@@ -17,12 +17,11 @@ import kotlinx.android.synthetic.main.activity_post.*
 
 class PostActivity : AppCompatActivity() {
 
-    private var userId: Int? = null
-
     private val postViewModel: PostViewModel by viewModels {
         PostViewModelFactory((application as App).postRepository)
     }
 
+    private var userId: Int? = null
     private lateinit var dialogProgress: ProgressDialog
     private val postAdapter = PostAdapter()
 
