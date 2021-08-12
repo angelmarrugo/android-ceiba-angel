@@ -1,4 +1,4 @@
-package co.com.ceiba.mobile.pruebadeingreso.repository
+package co.com.ceiba.mobile.pruebadeingreso.rest
 
 import co.com.ceiba.mobile.pruebadeingreso.model.Post
 import co.com.ceiba.mobile.pruebadeingreso.model.User

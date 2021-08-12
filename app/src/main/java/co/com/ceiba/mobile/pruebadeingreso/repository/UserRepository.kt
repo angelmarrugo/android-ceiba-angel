@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import co.com.ceiba.mobile.pruebadeingreso.db.UserDao
 import co.com.ceiba.mobile.pruebadeingreso.model.User
+import co.com.ceiba.mobile.pruebadeingreso.rest.ApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

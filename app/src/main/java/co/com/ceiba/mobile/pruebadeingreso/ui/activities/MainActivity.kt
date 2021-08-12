@@ -1,4 +1,4 @@
-package co.com.ceiba.mobile.pruebadeingreso
+package co.com.ceiba.mobile.pruebadeingreso.ui.activities
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -8,8 +8,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import co.com.ceiba.mobile.pruebadeingreso.R
 import co.com.ceiba.mobile.pruebadeingreso.model.User
-import co.com.ceiba.mobile.pruebadeingreso.ui.activities.PostActivity
 import co.com.ceiba.mobile.pruebadeingreso.ui.adapters.UserAdapter
 import co.com.ceiba.mobile.pruebadeingreso.ui.adapters.UserListener
 import co.com.ceiba.mobile.pruebadeingreso.viewmodel.UserViewModel

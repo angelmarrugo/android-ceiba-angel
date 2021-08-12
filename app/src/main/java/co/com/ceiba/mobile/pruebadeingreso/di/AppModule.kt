@@ -5,7 +5,7 @@ import androidx.room.Room
 import co.com.ceiba.mobile.pruebadeingreso.db.PostDao
 import co.com.ceiba.mobile.pruebadeingreso.db.UserDao
 import co.com.ceiba.mobile.pruebadeingreso.db.UserRoomDatabase
-import co.com.ceiba.mobile.pruebadeingreso.repository.ApiService
+import co.com.ceiba.mobile.pruebadeingreso.rest.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
